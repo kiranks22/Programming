@@ -1,0 +1,37 @@
+//The solution find the seat type and its number opposite to a given seat number
+#include <stdio.h>
+
+int main() {
+   
+   int seat, modulo, offset, oppositeSeat, temp, testCases, i;
+  
+   scanf("%d", & testCases);
+
+   for (i = 0; i < testCases; i++) {
+     
+     scanf("%d", & seat);
+      
+      modulo = seat % 12; // Find modulo for any given seat number
+      
+      if (modulo == 0) {
+         modulo = 12;
+      }
+     
+     // Logic to determine the opposite seat number
+     oppositeSeat = seat + 13 - 2 * modulo;
+     
+     temp = (modulo % 3);
+      
+     // Logic to find out seat type
+     if (temp == 2) {
+         printf("%d %s\n", oppositeSeat, "MS");
+      } 
+     
+     else if (modulo == 1 || modulo == 6 || modulo == 7 || modulo == 12) {
+         printf("%d %s\n", oppositeSeat, "WS");
+      } 
+      
+      else printf("%d %s\n", oppositeSeat, "AS");
+
+   }
+}
